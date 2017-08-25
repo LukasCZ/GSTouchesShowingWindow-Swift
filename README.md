@@ -73,7 +73,7 @@ import GSTouchesShowingWindow_Swift
 
 Note: In Today extensions (Widgets), the touch will disappear shortly after you start dragging (both horizontally and vertically). That's to be expected because system takes over control of the gesture.
 
-### How it actually works
+## How it actually works
 
 Inside the UIWindow subclass, I am overriding the `-sendEvent` method, processing all the events and directing them to a controller object that takes care of adding/moving/removing imageViews based on those events' touches. And then I call `[super sendEvent];` so that the touches are forwarded to the app itself. Refer to [Understanding Responders and the Responder Chain](https://developer.apple.com/library/content/documentation/EventHandling/Conceptual/EventHandlingiPhoneOS/HandlngEventsUsingtheResponderChain.html) to learn more. For extensions, a `UIGestureRecognizer` subclass is used because it's not possible to override window.
 
