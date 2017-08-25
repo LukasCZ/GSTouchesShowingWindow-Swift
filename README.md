@@ -25,7 +25,7 @@ Alternatively, you can just drag `GSTouchesShowingWindow-Swift/Classes` and `GST
 In your `AppDelegate.swift`, add the following code right after `class AppDelegate:..` declaration:
 
 ```Swift
-var customWindow: GSTouchesShowingWindow?
+    var customWindow: GSTouchesShowingWindow?
     var window: UIWindow? {
         get {
             customWindow = customWindow ?? GSTouchesShowingWindow(frame: UIScreen.main.bounds)
@@ -37,14 +37,20 @@ var customWindow: GSTouchesShowingWindow?
     }
 ```
 
+If you're using the CocoaPods integration, you also need to add the following import at the top of the file:
+```Swift
+import GSTouchesShowingWindow_Swift
+```
+
 And that's it!
 
 ### App Extensions
 If you are using App Extensions (such as Today extension or Keyboard extension), you can also show touches in them.
-First, you need to integrate GSTouchesShowingWindow-Swift in your App Extension target. If you're using CocoaPods, you can just add the pod like this:
+First, you need to integrate GSTouchesShowingWindow-Swift in your App Extension target. If you're using CocoaPods, you need to add the pod like this:
 
 ```ruby
 target 'Today Extension' do
+	use_frameworks!	
     pod 'GSTouchesShowingWindow-Swift'
 end
 ```
@@ -58,6 +64,11 @@ Then, in your `KeyboardViewController.m` or `TodayViewController.m`, add the fol
 
 ```Swift
 self.view.addGestureRecognizer(GSTouchesShowingGestureRecognizer())
+```
+
+Same as with main app target: if you're using the CocoaPods integration, you also need to add the following import:
+```Swift
+import GSTouchesShowingWindow_Swift
 ```
 
 Note: In Today extensions (Widgets), the touch will disappear shortly after you start dragging (both horizontally and vertically). That's to be expected because system takes over control of the gesture.
