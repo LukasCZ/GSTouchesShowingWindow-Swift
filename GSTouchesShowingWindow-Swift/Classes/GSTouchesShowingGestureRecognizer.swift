@@ -12,7 +12,7 @@ import UIKit.UIGestureRecognizerSubclass
 public class GSTouchesShowingGestureRecognizer: UIGestureRecognizer, UIGestureRecognizerDelegate {
     let touchesShowingController = GSTouchesShowingController()
     
-    init() {
+    public init() {
         super.init(target: nil, action: nil)
         self.cancelsTouchesInView = false
         self.delaysTouchesBegan = false
