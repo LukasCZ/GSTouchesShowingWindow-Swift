@@ -8,10 +8,10 @@
 
 import UIKit
 
-class GSTouchesShowingWindow: UIWindow {
+public class GSTouchesShowingWindow: UIWindow {
     let controller = GSTouchesShowingController()
     
-    override func sendEvent(_ event: UIEvent) {
+    override public func sendEvent(_ event: UIEvent) {
         let touches = event.allTouches
         
         for touch in touches! {
