@@ -50,7 +50,7 @@ First, you need to integrate GSTouchesShowingWindow-Swift in your App Extension 
 
 ```ruby
 target 'Today Extension' do
-	use_frameworks!	
+    use_frameworks!	
     pod 'GSTouchesShowingWindow-Swift'
 end
 ```
@@ -66,7 +66,7 @@ Then, in your `KeyboardViewController.m` or `TodayViewController.m`, add the fol
 self.view.addGestureRecognizer(GSTouchesShowingGestureRecognizer())
 ```
 
-Same as with main app target: if you're using the CocoaPods integration, you also need to add the following import:
+Same as with main app target: if you're using the CocoaPods integration, you also need to import the module using:
 ```Swift
 import GSTouchesShowingWindow_Swift
 ```
