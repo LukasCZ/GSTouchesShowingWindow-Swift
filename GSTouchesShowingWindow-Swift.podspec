@@ -1,10 +1,10 @@
 Pod::Spec.new do |s|
   s.name             = 'GSTouchesShowingWindow-Swift'
-  s.version          = '1.0.2'
+  s.version          = '1.0.3'
   s.summary          = 'UIWindow subclass that makes all touches in your app visible.'
 
   s.description      = <<-DESC
-GSTouchesShowingWindow is a drop-in component (UIWindow subclass) that will visualize all touches in your app as they are happening. It's great for creating App Previews or any kind of app videos. (Update: Now it works for Keyboard and Today extensions as well. See Readme for instructions.)
+GSTouchesShowingWindow is a drop-in component (UIWindow subclass) that will visualize all touches in your app as they are happening. It's great for creating App Previews or any kind of app videos. (Update: Now it works for Keyboard and Today extensions as well. Refer to Readme for instructions.)
                        DESC
 
   s.homepage         = 'https://github.com/LukasCZ/GSTouchesShowingWindow-Swift'
@@ -17,11 +17,6 @@ GSTouchesShowingWindow is a drop-in component (UIWindow subclass) that will visu
   s.ios.deployment_target = '8.0'
 
   s.source_files = 'GSTouchesShowingWindow-Swift/Classes/**/*'
-  
-##  s.resource_bundles = {
-##    'GSTouchesShowingWindow' => ['GSTouchesShowingWindow/Assets/*.png']
-##  }
-  
   s.resources = "GSTouchesShowingWindow-Swift/Assets.xcassets"
 
 end
