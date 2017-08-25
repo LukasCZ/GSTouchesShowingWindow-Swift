@@ -22,7 +22,7 @@ Alternatively, you can just drag `GSTouchesShowingWindow-Swift/Classes` and `GST
 
 ## How to set it up
 
-In your `AppDelegate.swift`, add the following code right after `class AppDelegate:..` declaration:
+In your `AppDelegate.swift`, replace `var window: UIWindow?` with the following code:
 
 ```Swift
     var customWindow: GSTouchesShowingWindow?
