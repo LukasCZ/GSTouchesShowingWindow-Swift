@@ -31,9 +31,7 @@ In your `AppDelegate.swift`, replace `var window: UIWindow?` with the following 
             customWindow = customWindow ?? GSTouchesShowingWindow(frame: UIScreen.main.bounds)
             return customWindow
         }
-        set {
-            
-        }
+        set { }
     }
 ```
 
