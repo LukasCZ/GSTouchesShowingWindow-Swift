@@ -8,7 +8,7 @@ A simple tool that automatically **shows all touches** inside your app as they a
 
 <img src="ReadmeFiles/TouchesPreviewTimelines.gif" width="320px">
 
-Short interaction in [Timelines](http://timelinesapp.io), my app for tracking time.
+Short interaction in [Timelines](https://timelinesapp.io), my app for tracking time.
 
 ## Installation
 
