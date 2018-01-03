@@ -11,7 +11,7 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    var customWindow: GSTouchesShowingWindow?
+    @objc var customWindow: GSTouchesShowingWindow?
     var window: UIWindow? {
         get {
             customWindow = customWindow ?? GSTouchesShowingWindow(frame: UIScreen.main.bounds)
