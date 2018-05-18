@@ -25,6 +25,7 @@ Alternatively, you can just drag `GSTouchesShowingWindow-Swift/Classes` and `GST
 In your `AppDelegate.swift`, replace `var window: UIWindow?` with the following code:
 
 ```Swift
+    #if DEBUG
     var customWindow: GSTouchesShowingWindow?
     var window: UIWindow? {
         get {
@@ -33,6 +34,9 @@ In your `AppDelegate.swift`, replace `var window: UIWindow?` with the following 
         }
         set { }
     }
+    #else
+    var window: UIWindow?
+    #endif
 ```
 
 If you're using the CocoaPods integration, you also need to add the following import at the top of the file:
