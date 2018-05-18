@@ -43,8 +43,8 @@ class GSTouchesShowingController {
     }
     
     public func touchEnded(_ touch: UITouch, view: UIView) -> Void {
-        let touchStartDate = self.touchesStartDateMapTable.object(forKey: touch)
-        let touchDuration = NSDate().timeIntervalSince(touchStartDate! as Date)
+        guard let touchStartDate = self.touchesStartDateMapTable.object(forKey: touch) else { return }
+        let touchDuration = NSDate().timeIntervalSince(touchStartDate as Date)
         self.touchesStartDateMapTable.removeObject(forKey: touch)
         
         if touchDuration < Constants.ShortTapTresholdDuration {
