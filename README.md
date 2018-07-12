@@ -15,7 +15,7 @@ Short interaction in [Timelines](https://timelinesapp.io), my app for tracking t
 GSTouchesShowingWindow is available through [CocoaPods](http://cocoapods.org). To install it, simply add the following line to your Podfile:
 
 ```ruby
-pod 'GSTouchesShowingWindow-Swift'
+pod 'GSTouchesShowingWindow-Swift', :git => 'https://github.com/Cyberbeni/GSTouchesShowingWindow-Swift.git', :configurations => ['Debug']
 ```
 
 Alternatively, you can just drag `GSTouchesShowingWindow-Swift/Classes` and `GSTouchesShowingWindow-Swift/Assets.xcassets` into your project.
