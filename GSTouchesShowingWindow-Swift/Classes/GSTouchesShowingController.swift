@@ -19,7 +19,7 @@ class GSTouchesShowingController {
     
     let touchImageViewQueue = GSTouchImageViewQueue(touchesCount: 8)
     var touchImgViewsDict = Dictionary<String, UIImageView>()
-    var touchesStartDateMapTable = NSMapTable<UITouch, NSDate>()
+    var touchesStartDateDict = Dictionary<String, NSDate>()
     
     public func touchBegan(_ touch: UITouch, view: UIView) -> Void {
         let touchImgView = self.touchImageViewQueue.popTouchImageView()
@@ -35,23 +35,22 @@ class GSTouchesShowingController {
             touchImgView.transform = CGAffineTransform(scaleX: 1, y: 1)
         }
         
-        self.touchesStartDateMapTable.setObject(NSDate(), forKey: touch)
+        self.touchesStartDateDict[String(format: "%p", touch)] = NSDate()
     }
     
     public func touchMoved(_ touch: UITouch, view: UIView) -> Void {
-        self.touchImageView(for: touch).center = touch.location(in: view)
+        self.touchImageView(for: touch)?.center = touch.location(in: view)
     }
     
     public func touchEnded(_ touch: UITouch, view: UIView) -> Void {
-        guard let touchStartDate = self.touchesStartDateMapTable.object(forKey: touch) else { return }
+        guard let touchStartDate = self.touchesStartDateDict[String(format: "%p", touch)], let touchImgView = self.touchImageView(for: touch) else { return }
         let touchDuration = NSDate().timeIntervalSince(touchStartDate as Date)
-        self.touchesStartDateMapTable.removeObject(forKey: touch)
+        self.touchesStartDateDict.removeValue(forKey: String(format: "%p", touch))
         
         if touchDuration < Constants.ShortTapTresholdDuration {
             self.showExpandingCircle(at: touch.location(in: view), in: view)
         }
         
-        let touchImgView = self.touchImageView(for: touch)
         UIView.animate(withDuration: 0.1, animations: { 
             touchImgView.alpha = 0.0
             touchImgView.transform = CGAffineTransform(scaleX: 1.13, y: 1.13)
@@ -111,16 +110,16 @@ class GSTouchesShowingController {
         CATransaction.commit()
     }
     
-    func touchImageView(for touch: UITouch) -> UIImageView {
-        return self.touchImgViewsDict["\(touch.hash)"]!
+    func touchImageView(for touch: UITouch) -> UIImageView? {
+        return self.touchImgViewsDict[String(format: "%p", touch)]
     }
     
     func setTouchImageView(_ touchImageView: UIImageView, for touch: UITouch) {
-        self.touchImgViewsDict["\(touch.hash)"] = touchImageView
+        self.touchImgViewsDict[String(format: "%p", touch)] = touchImageView
     }
     
     func removeTouchImageView(for touch: UITouch) {
-        self.touchImgViewsDict.removeValue(forKey: "\(touch.hash)")
+        self.touchImgViewsDict.removeValue(forKey: String(format: "%p", touch))
     }
 }
 
