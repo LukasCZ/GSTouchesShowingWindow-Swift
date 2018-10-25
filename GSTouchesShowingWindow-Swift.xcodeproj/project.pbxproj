@@ -22,6 +22,13 @@
 		16CEA90D1F50343800A97FED /* GSTouchesShowingWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CEA8F11F501B1500A97FED /* GSTouchesShowingWindow.swift */; };
 		16CEA90E1F50343E00A97FED /* GSTouchesShowingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CEA8F31F501D1C00A97FED /* GSTouchesShowingController.swift */; };
 		16CEA90F1F50344200A97FED /* GSTouchesShowingGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CEA8F51F502D2D00A97FED /* GSTouchesShowingGestureRecognizer.swift */; };
+		7508926421811F26003F090E /* TouchesShowingWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 7508926221811F26003F090E /* TouchesShowingWindow.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7508926721811F26003F090E /* TouchesShowingWindow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7508926021811F26003F090E /* TouchesShowingWindow.framework */; };
+		7508926821811F26003F090E /* TouchesShowingWindow.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7508926021811F26003F090E /* TouchesShowingWindow.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		7508926D21811F32003F090E /* GSTouchesShowingWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CEA8F11F501B1500A97FED /* GSTouchesShowingWindow.swift */; };
+		7508926E21811F32003F090E /* GSTouchesShowingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CEA8F31F501D1C00A97FED /* GSTouchesShowingController.swift */; };
+		7508926F21811F32003F090E /* GSTouchesShowingGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CEA8F51F502D2D00A97FED /* GSTouchesShowingGestureRecognizer.swift */; };
+		7508927021811F44003F090E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1674CB471EF418CA006A7056 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,6 +38,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 16CEA8FA1F5033CC00A97FED;
 			remoteInfo = "Today extension";
+		};
+		7508926521811F26003F090E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1674CB351EF418CA006A7056 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7508925F21811F26003F090E;
+			remoteInfo = TouchesShowingWindow;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -44,6 +58,17 @@
 				16CEA9081F5033CC00A97FED /* Today extension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7508926C21811F26003F090E /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				7508926821811F26003F090E /* TouchesShowingWindow.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -64,6 +89,9 @@
 		16CEA9001F5033CC00A97FED /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
 		16CEA9031F5033CC00A97FED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		16CEA9051F5033CC00A97FED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7508926021811F26003F090E /* TouchesShowingWindow.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TouchesShowingWindow.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7508926221811F26003F090E /* TouchesShowingWindow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TouchesShowingWindow.h; sourceTree = "<group>"; };
+		7508926321811F26003F090E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +99,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7508926721811F26003F090E /* TouchesShowingWindow.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,6 +111,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		7508925D21811F26003F090E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -90,6 +126,7 @@
 			children = (
 				1674CB3F1EF418CA006A7056 /* GSTouchesShowingWindow-Swift */,
 				16CEA8FF1F5033CC00A97FED /* Today extension */,
+				7508926121811F26003F090E /* TouchesShowingWindow */,
 				16CEA8FC1F5033CC00A97FED /* Frameworks */,
 				1674CB3E1EF418CA006A7056 /* Products */,
 			);
@@ -100,6 +137,7 @@
 			children = (
 				1674CB3D1EF418CA006A7056 /* GSTouchesShowingWindow-Swift.app */,
 				16CEA8FB1F5033CC00A97FED /* Today extension.appex */,
+				7508926021811F26003F090E /* TouchesShowingWindow.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -162,7 +200,27 @@
 			path = "Today extension";
 			sourceTree = "<group>";
 		};
+		7508926121811F26003F090E /* TouchesShowingWindow */ = {
+			isa = PBXGroup;
+			children = (
+				7508926221811F26003F090E /* TouchesShowingWindow.h */,
+				7508926321811F26003F090E /* Info.plist */,
+			);
+			path = TouchesShowingWindow;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		7508925B21811F26003F090E /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7508926421811F26003F090E /* TouchesShowingWindow.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
 		1674CB3C1EF418CA006A7056 /* GSTouchesShowingWindow-Swift */ = {
@@ -173,11 +231,13 @@
 				1674CB3A1EF418CA006A7056 /* Frameworks */,
 				1674CB3B1EF418CA006A7056 /* Resources */,
 				16CEA90C1F5033CC00A97FED /* Embed App Extensions */,
+				7508926C21811F26003F090E /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				16CEA9071F5033CC00A97FED /* PBXTargetDependency */,
+				7508926621811F26003F090E /* PBXTargetDependency */,
 			);
 			name = "GSTouchesShowingWindow-Swift";
 			productName = "GSTouchesShowingWindow-Swift";
@@ -201,6 +261,24 @@
 			productReference = 16CEA8FB1F5033CC00A97FED /* Today extension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
+		7508925F21811F26003F090E /* TouchesShowingWindow */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7508926921811F26003F090E /* Build configuration list for PBXNativeTarget "TouchesShowingWindow" */;
+			buildPhases = (
+				7508925B21811F26003F090E /* Headers */,
+				7508925C21811F26003F090E /* Sources */,
+				7508925D21811F26003F090E /* Frameworks */,
+				7508925E21811F26003F090E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TouchesShowingWindow;
+			productName = TouchesShowingWindow;
+			productReference = 7508926021811F26003F090E /* TouchesShowingWindow.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -221,6 +299,11 @@
 						DevelopmentTeam = BKU6J3C237;
 						ProvisioningStyle = Automatic;
 					};
+					7508925F21811F26003F090E = {
+						CreatedOnToolsVersion = 10.0;
+						DevelopmentTeam = BKU6J3C237;
+						ProvisioningStyle = Automatic;
+					};
 				};
 			};
 			buildConfigurationList = 1674CB381EF418CA006A7056 /* Build configuration list for PBXProject "GSTouchesShowingWindow-Swift" */;
@@ -238,6 +321,7 @@
 			targets = (
 				1674CB3C1EF418CA006A7056 /* GSTouchesShowingWindow-Swift */,
 				16CEA8FA1F5033CC00A97FED /* Today extension */,
+				7508925F21811F26003F090E /* TouchesShowingWindow */,
 			);
 		};
 /* End PBXProject section */
@@ -258,6 +342,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				16CEA9041F5033CC00A97FED /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7508925E21811F26003F090E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7508927021811F44003F090E /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,6 +379,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		7508925C21811F26003F090E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7508926E21811F32003F090E /* GSTouchesShowingController.swift in Sources */,
+				7508926F21811F32003F090E /* GSTouchesShowingGestureRecognizer.swift in Sources */,
+				7508926D21811F32003F090E /* GSTouchesShowingWindow.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -294,6 +396,11 @@
 			isa = PBXTargetDependency;
 			target = 16CEA8FA1F5033CC00A97FED /* Today extension */;
 			targetProxy = 16CEA9061F5033CC00A97FED /* PBXContainerItemProxy */;
+		};
+		7508926621811F26003F090E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7508925F21811F26003F090E /* TouchesShowingWindow */;
+			targetProxy = 7508926521811F26003F090E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -372,6 +479,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -414,6 +522,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.2;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -423,12 +532,13 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = BKU6J3C237;
 				INFOPLIST_FILE = "GSTouchesShowingWindow-Swift/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.glimsoft.GSTouchesShowingWindow-Swift";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -437,12 +547,13 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = BKU6J3C237;
 				INFOPLIST_FILE = "GSTouchesShowingWindow-Swift/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.glimsoft.GSTouchesShowingWindow-Swift";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};
@@ -455,7 +566,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.glimsoft.GSTouchesShowingWindow-Swift.Today-extension";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -468,7 +579,86 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.glimsoft.GSTouchesShowingWindow-Swift.Today-extension";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.2;
+			};
+			name = Release;
+		};
+		7508926A21811F26003F090E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = BKU6J3C237;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = TouchesShowingWindow/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = hu.cyberbeni.TouchesShowingWindow;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		7508926B21811F26003F090E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = BKU6J3C237;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = TouchesShowingWindow/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = hu.cyberbeni.TouchesShowingWindow;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
@@ -500,6 +690,16 @@
 				16CEA90B1F5033CC00A97FED /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7508926921811F26003F090E /* Build configuration list for PBXNativeTarget "TouchesShowingWindow" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7508926A21811F26003F090E /* Debug */,
+				7508926B21811F26003F090E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
