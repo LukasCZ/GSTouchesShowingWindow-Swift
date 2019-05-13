@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'GSTouchesShowingWindow-Swift'
-  s.version          = '1.0.3'
+  s.version          = '1.0.4'
   s.summary          = 'UIWindow subclass that makes all touches in your app visible.'
 
   s.description      = <<-DESC
