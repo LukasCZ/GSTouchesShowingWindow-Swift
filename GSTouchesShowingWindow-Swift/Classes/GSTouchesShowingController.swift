@@ -8,38 +8,35 @@
 
 import UIKit
 
-struct Constants {
-    static let TouchImageName = "TouchImageBlue"
-    static let ShortTapTresholdDuration = 0.11
-    static let ShortTapInitialCircleRadius : CGFloat = 22.0
-    static let ShortTapFinalCircleRadius : CGFloat = 57.0
-}
-
 class GSTouchesShowingController {
     
-    let touchImageViewQueue = GSTouchImageViewQueue(touchesCount: 8)
-    var touchImgViewsDict = Dictionary<String, UIImageView>()
+    var touchViewQueue = GSTouchViewQueue(touchesCount: 8)
+    var touchViewsDict = Dictionary<String, UIView>()
     var touchesStartDateMapTable = NSMapTable<UITouch, NSDate>()
+    var appearance:TouchAppearance = TouchAppearance()
     
     public func touchBegan(_ touch: UITouch, view: UIView) -> Void {
-        let touchImgView = self.touchImageViewQueue.popTouchImageView()
-        touchImgView.center = touch.location(in: view)
-        view.addSubview(touchImgView)
+        let touchView = self.touchViewQueue.popTouchView()
+        touchView.frame = CGRect(x: 0, y: 0, width: appearance.shortTapFinalCircleRadius, height: appearance.shortTapFinalCircleRadius )
+        touchView.layer.cornerRadius = touchView.bounds.size.width / 2.0
+        touchView.center = touch.location(in: view)
+        touchView.backgroundColor = appearance.touchColor
+        view.addSubview(touchView)
         
-        touchImgView.alpha = 0.0
-        touchImgView.transform = CGAffineTransform(scaleX: 1.13, y: 1.13)
-        self.setTouchImageView(touchImgView, for: touch)
+        touchView.alpha = 0.0
+        touchView.transform = CGAffineTransform(scaleX: 1.13, y: 1.13)
+        self.setTouchView(touchView, for: touch)
         
         UIView.animate(withDuration: 0.1) { 
-            touchImgView.alpha = 1.0
-            touchImgView.transform = CGAffineTransform(scaleX: 1, y: 1)
+            touchView.alpha = 1.0
+            touchView.transform = CGAffineTransform(scaleX: 1, y: 1)
         }
         
         self.touchesStartDateMapTable.setObject(NSDate(), forKey: touch)
     }
     
     public func touchMoved(_ touch: UITouch, view: UIView) -> Void {
-        self.touchImageView(for: touch).center = touch.location(in: view)
+        self.touchView(for: touch).center = touch.location(in: view)
     }
     
     public func touchEnded(_ touch: UITouch, view: UIView) -> Void {
@@ -47,26 +44,26 @@ class GSTouchesShowingController {
         let touchDuration = NSDate().timeIntervalSince(touchStartDate! as Date)
         self.touchesStartDateMapTable.removeObject(forKey: touch)
         
-        if touchDuration < Constants.ShortTapTresholdDuration {
+        if touchDuration < appearance.shortTapTresholdDuration {
             self.showExpandingCircle(at: touch.location(in: view), in: view)
         }
         
-        let touchImgView = self.touchImageView(for: touch)
+        let touchView = self.touchView(for: touch)
         UIView.animate(withDuration: 0.1, animations: { 
-            touchImgView.alpha = 0.0
-            touchImgView.transform = CGAffineTransform(scaleX: 1.13, y: 1.13)
+            touchView.alpha = 0.0
+            touchView.transform = CGAffineTransform(scaleX: 1.13, y: 1.13)
         }) { (completed) in
-            touchImgView.removeFromSuperview()
-            touchImgView.alpha = 1.0
-            self.touchImageViewQueue.push(touchImgView)
-            self.removeTouchImageView(for: touch)
+            touchView.removeFromSuperview()
+            touchView.alpha = 1.0
+            self.touchViewQueue.push(touchView)
+            self.removeTouchView(for: touch)
         }
     }
     
     func showExpandingCircle(at position: CGPoint, in view: UIView) -> Void {
         let circleLayer = CAShapeLayer()
-        let initialRadius = Constants.ShortTapInitialCircleRadius
-        let finalRadius = Constants.ShortTapFinalCircleRadius
+        let initialRadius = appearance.shortTapInitialCircleRadius
+        let finalRadius = appearance.shortTapFinalCircleRadius
         circleLayer.position = CGPoint(x: position.x - initialRadius, y: position.y - initialRadius)
         
         let startPathRect = CGRect(x: 0, y: 0, width: initialRadius * 2, height: initialRadius * 2)
@@ -78,7 +75,7 @@ class GSTouchesShowingController {
         
         circleLayer.path = startPath.cgPath
         circleLayer.fillColor = UIColor.clear.cgColor
-        circleLayer.strokeColor = UIColor(red: 0.0/255, green: 135.0/255, blue: 244.0/255, alpha: 0.8).cgColor
+        circleLayer.strokeColor = appearance.touchColor.cgColor
         circleLayer.lineWidth = 2.0
         view.layer.addSublayer(circleLayer)
         
@@ -91,7 +88,7 @@ class GSTouchesShowingController {
         let expandingAnimation = CABasicAnimation(keyPath: "path")
         expandingAnimation.fromValue = startPath.cgPath
         expandingAnimation.toValue = endPath.cgPath
-        expandingAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
+        expandingAnimation.timingFunction = CAMediaTimingFunction(name: .linear )
         expandingAnimation.duration = 0.4
         expandingAnimation.repeatCount = 1.0
         circleLayer.add(expandingAnimation, forKey: "expandingAnimation")
@@ -102,7 +99,7 @@ class GSTouchesShowingController {
             let fadingOutAnimation = CABasicAnimation(keyPath: "opacity")
             fadingOutAnimation.fromValue = 1.0
             fadingOutAnimation.toValue = 0.0
-            fadingOutAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
+          fadingOutAnimation.timingFunction = CAMediaTimingFunction(name: .easeOut )
             fadingOutAnimation.duration = 0.15
             circleLayer.add(fadingOutAnimation, forKey: "fadeOutAnimation")
             circleLayer.opacity = 0.0
@@ -111,38 +108,37 @@ class GSTouchesShowingController {
         CATransaction.commit()
     }
     
-    func touchImageView(for touch: UITouch) -> UIImageView {
-        return self.touchImgViewsDict["\(touch.hash)"]!
+    func touchView(for touch: UITouch) -> UIView {
+        return self.touchViewsDict["\(touch.hash)"]!
     }
     
-    func setTouchImageView(_ touchImageView: UIImageView, for touch: UITouch) {
-        self.touchImgViewsDict["\(touch.hash)"] = touchImageView
+    func setTouchView(_ touchView: UIView, for touch: UITouch) {
+        self.touchViewsDict["\(touch.hash)"] = touchView
     }
     
-    func removeTouchImageView(for touch: UITouch) {
-        self.touchImgViewsDict.removeValue(forKey: "\(touch.hash)")
+    func removeTouchView(for touch: UITouch) {
+        self.touchViewsDict.removeValue(forKey: "\(touch.hash)")
     }
 }
 
-class GSTouchImageViewQueue {
+class GSTouchViewQueue {
     
-    var backingArray = Array<UIImageView>();
+    var backingArray = Array<UIView>();
     
     convenience init(touchesCount: Int) {
         self.init()
         
-        let bundle = Bundle(for: type(of: self))
         for _ in 0..<touchesCount {
-            let imageView = UIImageView(image: UIImage(named: Constants.TouchImageName, in: bundle, compatibleWith: nil))
-            self.backingArray.append(imageView)
+          let view = UIView(frame: CGRect(x: 0, y: 0, width: 60, height: 60 ) )
+          self.backingArray.append(view)
         }
     }
     
-    func popTouchImageView() -> UIImageView {
+    func popTouchView() -> UIView {
         return self.backingArray.removeFirst()
     }
     
-    func push(_ touchImageView: UIImageView) -> Void {
-        self.backingArray.append(touchImageView)
+    func push(_ touchView: UIView) -> Void {
+        self.backingArray.append(touchView)
     }
 }
