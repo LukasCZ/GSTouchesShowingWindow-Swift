@@ -15,6 +15,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow? {
         get {
             customWindow = customWindow ?? GSTouchesShowingWindow(frame: UIScreen.main.bounds)
+            // enable touches to be displayed (can be controlled at runtime, default is off)
+            customWindow?.showTouchesEnabled = true
+            /*
+            // uncomment to adjust appearance for your application - particularly the color for contrast
+            customWindow?.touchAppearance = TouchAppearance(
+              shortTapInitialCircleRadius: 50.0,    // default 22
+              shortTapFinalCircleRadius: 70.0,      // default 57
+              touchColor: UIColor.red )             // default - nice shade of blue
+            */
             return customWindow
         }
         set {
@@ -22,7 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+  func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         return true
     }
