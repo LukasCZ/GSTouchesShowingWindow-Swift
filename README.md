@@ -29,11 +29,37 @@ In your `AppDelegate.swift`, replace `var window: UIWindow?` with the following 
     var window: UIWindow? {
         get {
             customWindow = customWindow ?? GSTouchesShowingWindow(frame: UIScreen.main.bounds)
+            customWindow?.showTouchesEnabled = true		// required to enable touches to be displayed
             return customWindow
         }
         set { }
     }
 ```
+
+## Customising appearance
+
+The color and size of touches can be altered using the appearance. The default values are pretty good but if your application
+uses a lot of blue, then you may want to change color for better contrast in demostration videos.
+
+Customize your `AppDelegate.swift`, replace `var window: UIWindow?` with the following code:
+
+```Swift
+    var customWindow: GSTouchesShowingWindow?
+    var window: UIWindow? {
+        get {
+            customWindow = customWindow ?? GSTouchesShowingWindow(frame: UIScreen.main.bounds)
+            customWindow?.showTouchesEnabled = true		// required to enable touches to be displayed
+            customWindow?.touchAppearance = TouchAppearance(
+              shortTapInitialCircleRadius: 50.0,    // default 22
+              shortTapFinalCircleRadius: 70.0,      // default 57
+              touchColor: UIColor.red )             // default - nice shade of blue
+            return customWindow
+        }
+        set { }
+    }
+```
+
+ 
 
 If you're using the CocoaPods integration, you also need to add the following import at the top of the file:
 ```Swift
