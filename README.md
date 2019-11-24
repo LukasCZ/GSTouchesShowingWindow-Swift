@@ -35,6 +35,18 @@ In your `AppDelegate.swift`, replace `var window: UIWindow?` with the following 
     }
 ```
 
+And if `SceneDelegate.swift` is implemented, replace `var window: UIWindow?` with the following code:
+
+```Swift
+    var window: UIWindow? {
+        get {
+            let delegate = UIApplication.shared.delegate as! AppDelegate
+            return delegate.customWindow
+        }
+        set { }
+    }
+```
+
 If you're using the CocoaPods integration, you also need to add the following import at the top of the file:
 ```Swift
 import GSTouchesShowingWindow_Swift

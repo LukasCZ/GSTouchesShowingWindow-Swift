@@ -91,7 +91,7 @@ class GSTouchesShowingController {
         let expandingAnimation = CABasicAnimation(keyPath: "path")
         expandingAnimation.fromValue = startPath.cgPath
         expandingAnimation.toValue = endPath.cgPath
-        expandingAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
+        expandingAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
         expandingAnimation.duration = 0.4
         expandingAnimation.repeatCount = 1.0
         circleLayer.add(expandingAnimation, forKey: "expandingAnimation")
@@ -102,7 +102,7 @@ class GSTouchesShowingController {
             let fadingOutAnimation = CABasicAnimation(keyPath: "opacity")
             fadingOutAnimation.fromValue = 1.0
             fadingOutAnimation.toValue = 0.0
-            fadingOutAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
+            fadingOutAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
             fadingOutAnimation.duration = 0.15
             circleLayer.add(fadingOutAnimation, forKey: "fadeOutAnimation")
             circleLayer.opacity = 0.0
