@@ -3,11 +3,11 @@ import ObjectiveC
 
 extension UIWindow {
     static var touchesShowingControllerKey = 0;
-    var controller: GSTouchesShowingController {
+    var controller: ShowTouchesController {
         get {
-            var controller: GSTouchesShowingController? = objc_getAssociatedObject(self, &UIWindow.touchesShowingControllerKey) as? GSTouchesShowingController
+            var controller: ShowTouchesController? = objc_getAssociatedObject(self, &UIWindow.touchesShowingControllerKey) as? ShowTouchesController
             if controller == nil {
-                controller = GSTouchesShowingController()
+                controller = ShowTouchesController()
                 objc_setAssociatedObject(self, &UIWindow.touchesShowingControllerKey, controller, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
             }
             return controller!

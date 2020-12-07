@@ -1,7 +1,7 @@
 import UIKit
 
 public class ShowTouchesGestureRecognizer: UIGestureRecognizer, UIGestureRecognizerDelegate {
-    let touchesShowingController = GSTouchesShowingController()
+    let touchesShowingController = ShowTouchesController()
     
     public init() {
         super.init(target: nil, action: nil)
