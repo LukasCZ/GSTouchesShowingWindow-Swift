@@ -11,6 +11,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 ------------------------------
 
 Forked from https://github.com/LukasCZ/GSTouchesShowingWindow-Swift
+
 Original license:
 
 The MIT License (MIT)
