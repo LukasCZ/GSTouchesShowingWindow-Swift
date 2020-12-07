@@ -14,7 +14,7 @@ ShowTouches is available through [Swift Package Manager](https://swift.org/packa
 
 ## How to set it up
 
-Just call `UIWindow.startShowingTouches()` (Also works with SwiftUI using [App](https://developer.apple.com/documentation/swiftui/app) and [WindowGroup](https://developer.apple.com/documentation/swiftui/windowgroup) added in Xcode 12.0) anywhere in your app.
+Just call `UIWindow.startShowingTouches()` anywhere in your app. (Also works with SwiftUI using [App](https://developer.apple.com/documentation/swiftui/app) and [WindowGroup](https://developer.apple.com/documentation/swiftui/windowgroup) added in Xcode 12.0)
 
 And that's it!
 
@@ -28,4 +28,4 @@ If you only want to display touches for specific views (or the other method does
 
 ## How it actually works
 
-Inside the UIWindow subclass, I am overriding the `sendEvent(_:)` method, processing all the events and directing them to a controller object that takes care of adding/moving/removing colored views based on those events' touches. And then I call `super.sendEvent(_:)` so that the touches are forwarded to the app itself. Refer to [Understanding Responders and the Responder Chain](https://developer.apple.com/library/content/documentation/EventHandling/Conceptual/EventHandlingiPhoneOS/HandlngEventsUsingtheResponderChain.html) to learn more.
+I am overriding the `sendEvent(_:)` method, processing all the events and directing them to a controller object that takes care of adding/moving/removing colored views based on those events' touches. And then I call `super.sendEvent(_:)` so that the touches are forwarded to the app itself. Refer to [Understanding Responders and the Responder Chain](https://developer.apple.com/library/content/documentation/EventHandling/Conceptual/EventHandlingiPhoneOS/HandlngEventsUsingtheResponderChain.html) to learn more.
