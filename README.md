@@ -1,7 +1,3 @@
-# TODO:
-- restore example image
-- recheck text.
-
 # ShowTouches
 
 A simple tool that automatically **shows all touches** inside your app as they are happening, using a circular image indicator. It's useful for creating **App Previews** for the App Store or any kind of **app videos** where you need to demonstrate some rich user interaction that would be hard to showcase otherwise.
@@ -14,22 +10,21 @@ Short interaction in [Timelines](https://timelinesapp.io), the original creator'
 
 ## Installation
 
-GSTouchesShowingWindow is available through [Swift Package Manager](https://swift.org/package-manager/). To install it, simply add the url of this repository to your package dependencies.
+ShowTouches is available through [Swift Package Manager](https://swift.org/package-manager/). To install it, simply add the url of this repository through `Xcode -> File -> Swift Packages -> Add Package Dependency...`
 
 ## How to set it up
 
-Just call `UIWindow.startShowingTouches()` (Also works with SwiftUI using [App](https://developer.apple.com/documentation/swiftui/app) and [WindowGroup](https://developer.apple.com/documentation/swiftui/windowgroup) added in Xcode 12.0)
+Just call `UIWindow.startShowingTouches()` (Also works with SwiftUI using [App](https://developer.apple.com/documentation/swiftui/app) and [WindowGroup](https://developer.apple.com/documentation/swiftui/windowgroup) added in Xcode 12.0) anywhere in your app.
 
 And that's it!
 
 ### App Extensions
-If you are using App Extensions (such as Today extension or Keyboard extension), you can also show touches in them. In your `KeyboardViewController.swift` or `TodayViewController.swift`, add the following line near the end of `viewDidLoad()` method:
 
-```Swift
-view.addGestureRecognizer(ShowTouchesGestureRecognizer())
-```
+If you are using App Extensions (such as Action extension or Keyboard extension), you can also show touches in them. Calling `UIWindow.startShowingTouches()` should work for those too.
 
-Note: In Today extensions (Widgets), the touch will disappear shortly after you start dragging (both horizontally and vertically). That's to be expected because system takes over control of the gesture.
+### Only showing for specific views
+
+If you only want to display touches for specific views (or the other method doesn't work for you), a gesture recognizer is also available: `view.addGestureRecognizer(ShowTouchesGestureRecognizer())`
 
 ## How it actually works
 
