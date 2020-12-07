@@ -1,15 +1,6 @@
-//
-//  GSTouchesShowingGestureRecognizer.swift
-//  GSTouchesShowingWindow-Swift
-//
-//  Created by Lukas Petr on 8/25/17.
-//  Copyright © 2017 Glimsoft. All rights reserved.
-//
-
 import UIKit
-import UIKit.UIGestureRecognizerSubclass
 
-public class GSTouchesShowingGestureRecognizer: UIGestureRecognizer, UIGestureRecognizerDelegate {
+public class ShowTouchesGestureRecognizer: UIGestureRecognizer, UIGestureRecognizerDelegate {
     let touchesShowingController = GSTouchesShowingController()
     
     public init() {

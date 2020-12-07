@@ -1,3 +1,5 @@
+# TODO: update readme
+
 # GSTouchesShowingWindow-Swift
 
 A simple tool that automatically **shows all touches** inside your app as they are happening, using a circular image indicator. It's useful for creating **App Previews** for the App Store or any kind of **app videos** where you need to demonstrate some rich user interaction that would be hard to showcase otherwise.
