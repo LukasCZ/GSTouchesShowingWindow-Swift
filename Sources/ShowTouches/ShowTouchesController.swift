@@ -1,24 +1,17 @@
-//
-//  GSTouchesShowingController.swift
-//  GSTouchesShowingWindow-Swift
-//
-//  Created by Lukas Petr on 8/25/17.
-//  Copyright © 2017 Glimsoft. All rights reserved.
-//
-
 import UIKit
 
 struct Constants {
-    static let TouchImageName = "TouchImageBlue"
+    static let TouchColor = UIColor(red: 0.0/255, green: 135.0/255, blue: 244.0/255, alpha: 0.8)
+    static let CircleSize: CGFloat = 61.0
     static let ShortTapTresholdDuration = 0.11
     static let ShortTapInitialCircleRadius : CGFloat = 22.0
     static let ShortTapFinalCircleRadius : CGFloat = 57.0
 }
 
-class GSTouchesShowingController {
+class ShowTouchesController {
     
     let touchImageViewQueue = GSTouchImageViewQueue(touchesCount: 8)
-    var touchImgViewsDict = Dictionary<String, UIImageView>()
+    var touchImgViewsDict = Dictionary<String, UIView>()
     var touchesStartDateDict = Dictionary<String, NSDate>()
     
     public func touchBegan(_ touch: UITouch, view: UIView) -> Void {
@@ -77,7 +70,7 @@ class GSTouchesShowingController {
         
         circleLayer.path = startPath.cgPath
         circleLayer.fillColor = UIColor.clear.cgColor
-        circleLayer.strokeColor = UIColor(red: 0.0/255, green: 135.0/255, blue: 244.0/255, alpha: 0.8).cgColor
+        circleLayer.strokeColor = Constants.TouchColor.cgColor
         circleLayer.lineWidth = 2.0
         view.layer.addSublayer(circleLayer)
         
@@ -110,11 +103,11 @@ class GSTouchesShowingController {
         CATransaction.commit()
     }
     
-    func touchImageView(for touch: UITouch) -> UIImageView? {
+    func touchImageView(for touch: UITouch) -> UIView? {
         return self.touchImgViewsDict[String(format: "%p", touch)]
     }
     
-    func setTouchImageView(_ touchImageView: UIImageView, for touch: UITouch) {
+    func setTouchImageView(_ touchImageView: UIView, for touch: UITouch) {
         self.touchImgViewsDict[String(format: "%p", touch)] = touchImageView
     }
     
@@ -125,23 +118,24 @@ class GSTouchesShowingController {
 
 class GSTouchImageViewQueue {
     
-    var backingArray = Array<UIImageView>();
+    var backingArray = Array<UIView>();
     
     convenience init(touchesCount: Int) {
         self.init()
         
-        let bundle = Bundle(for: type(of: self))
         for _ in 0..<touchesCount {
-            let imageView = UIImageView(image: UIImage(named: Constants.TouchImageName, in: bundle, compatibleWith: nil))
+            let imageView = UIView(frame: CGRect(x: 0, y: 0, width: Constants.CircleSize, height: Constants.CircleSize))
+            imageView.backgroundColor = Constants.TouchColor
+            imageView.layer.cornerRadius = Constants.CircleSize / 2
             self.backingArray.append(imageView)
         }
     }
     
-    func popTouchImageView() -> UIImageView {
+    func popTouchImageView() -> UIView {
         return self.backingArray.removeFirst()
     }
     
-    func push(_ touchImageView: UIImageView) -> Void {
+    func push(_ touchImageView: UIView) -> Void {
         self.backingArray.append(touchImageView)
     }
 }
