@@ -28,4 +28,4 @@ If you only want to display touches for specific views (or the other method does
 
 ## How it actually works
 
-I am overriding the `sendEvent(_:)` method, processing all the events and directing them to a controller object that takes care of adding/moving/removing colored views based on those events' touches. And then I call `super.sendEvent(_:)` so that the touches are forwarded to the app itself. Refer to [Understanding Responders and the Responder Chain](https://developer.apple.com/library/content/documentation/EventHandling/Conceptual/EventHandlingiPhoneOS/HandlngEventsUsingtheResponderChain.html) to learn more.
+I am overriding the `sendEvent(_:)` method with the help of the Objective-C runtime, processing all the events and directing them to a controller object that takes care of adding/moving/removing colored views based on those events' touches. And then I call `super.sendEvent(_:)` so that the touches are forwarded to the app itself. Refer to [Understanding Responders and the Responder Chain](https://developer.apple.com/library/content/documentation/EventHandling/Conceptual/EventHandlingiPhoneOS/HandlngEventsUsingtheResponderChain.html) to learn more.
